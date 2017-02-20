@@ -8,6 +8,6 @@
     <string name="begin_election">Begin Election</string>
     <string name="show_results">Give me the election results</string>
     <string name="new_ballot">I want to vote</string>
-    <string name="election_landing_status">No ballots have been cast. Anyone else voting?</string>
+    <string name="election_landing_status">No ballots have been cast.</string>
     <string name="results_intro">Here are the results:</string>
 </resources>
