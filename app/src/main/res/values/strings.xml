@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Consensus</string>
+    <string name="new_election">New Election</string>
+    <string name="consensus_welcome">Welcome to Consensus! A better way to make group decisions.</string>
+    <string name="create_candidate_list">Create Candidate List</string>
+    <string name="voting_method">Voting Method</string>
+    <string name="election_title">Election Title</string>
+</resources>
