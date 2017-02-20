@@ -1,31 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_results"
+    android:id="@+id/activity_election_landing"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.consensus.ResultsActivity">
+    tools:context="com.example.consensus.ElectionLandingActivity">
 
     <TextView
-        android:text="@string/results_intro"
+        android:text="@string/election_landing_status"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:id="@+id/resultsText" />
+        android:id="@+id/electionLandingText" />
 
     <Button
-        android:text="@string/new_election"
+        android:text="@string/new_ballot"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/resultsText"
+        android:layout_below="@+id/electionLandingText"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:id="@+id/newElectionButton"
-        android:onClick="newElection" />
+        android:id="@+id/newBallotButton"
+        android:onClick="newBallot" />
+
+    <Button
+        android:text="@string/show_results"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/newBallotButton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/showResultsButton"
+        android:onClick="showResults" />
 </RelativeLayout>
