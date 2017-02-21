@@ -37,8 +37,7 @@ public class PrepareCandidateListActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         mElectionTitle = intent.getStringExtra("electionTitle");
-
-        Button addCandidateButton = (Button) findViewById(R.id.AddCandidateButton);
+        
         final Button addCandidateButton = (Button) findViewById(R.id.AddCandidateButton);
         final EditText candidateTextBox = (EditText) findViewById(R.id.CandidateTextBox);
 
