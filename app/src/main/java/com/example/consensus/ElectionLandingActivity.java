@@ -11,6 +11,7 @@ import android.widget.Toast;
 import static android.widget.Toast.LENGTH_SHORT;
 
 public class ElectionLandingActivity extends AppCompatActivity {
+    private static final int NEW_BALLOT_REQUEST = 1;
     private int mBallotsCast = 0;
 
     @Override
@@ -25,10 +26,17 @@ public class ElectionLandingActivity extends AppCompatActivity {
     }
 
     public void newBallot(View view) {
-        //TODO: Create new ballot activity
-        Toast.makeText(this, "Ballot successfully cast", LENGTH_SHORT).show();
-        mBallotsCast++;
+        Intent newBallotIntent = new Intent(this, BallotActivity.class);
+        startActivityForResult(newBallotIntent, NEW_BALLOT_REQUEST);
+    }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == NEW_BALLOT_REQUEST) {
+            if (resultCode == RESULT_OK) {
+                mBallotsCast++;
+            }
+        }
         UpdateActivity();
     }
 
@@ -49,7 +57,7 @@ public class ElectionLandingActivity extends AppCompatActivity {
                 break;
             default:
                 showResultsButton.setEnabled(true);
-                descriptionTextView.setText( Integer.toString(mBallotsCast) + " ballots have been cast so far. Anyone else voting?");
+                descriptionTextView.setText(Integer.toString(mBallotsCast) + " ballots have been cast so far. Anyone else voting?");
                 break;
         }
     }

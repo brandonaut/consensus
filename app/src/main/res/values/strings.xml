@@ -10,4 +10,7 @@
     <string name="new_ballot">I want to vote</string>
     <string name="election_landing_status">No ballots have been cast.</string>
     <string name="results_intro">Here are the results:</string>
+    <string name="ballot_info">Rank the following in order of preference. Items may share a number. (1 = Most Preferred)</string>
+    <string name="sort_by_rank">Sort by Rank</string>
+    <string name="cast_ballot">Cast Ballot</string>
 </resources>
