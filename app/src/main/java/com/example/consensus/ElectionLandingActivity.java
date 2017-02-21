@@ -8,28 +8,40 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 import static android.widget.Toast.LENGTH_SHORT;
 
 public class ElectionLandingActivity extends AppCompatActivity {
     private static final int NEW_BALLOT_REQUEST = 1;
     private int mBallotsCast = 0;
+    private Schulze mSchulze = null;
+    private ArrayList<String> mCandidates = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_election_landing);
 
-        // Update title
         Intent intent = getIntent();
+
+        // Update title
         String electionTitle = intent.getStringExtra("electionTitle");
         if (electionTitle != null) {
             setTitle(electionTitle);
         }
 
+        ArrayList<String> candidates = intent.getStringArrayListExtra("candidates");
+        if (candidates != null) {
+            mCandidates = new ArrayList<String> (candidates);
+            mSchulze = new Schulze(mCandidates);
+        }
     }
 
     public void showResults(View view) {
         Intent intent = new Intent(this, ResultsActivity.class);
+        intent.putExtra("ranking", mSchulze.getRanking());
         startActivity(intent);
     }
 

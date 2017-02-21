@@ -132,9 +132,7 @@ public class PrepareCandidateListActivity extends AppCompatActivity {
     public void beginElection(View view) {
         Intent intent = new Intent(this, ElectionLandingActivity.class);
         intent.putExtra("electionTitle", mElectionTitle);
-
-        Bundle b = new Bundle();
-        b.putStringArrayList("Candidates", listItems);
-        startActivity(intent, b);
+        intent.putStringArrayListExtra("candidates", listItems);
+        startActivity(intent);
     }
 }
