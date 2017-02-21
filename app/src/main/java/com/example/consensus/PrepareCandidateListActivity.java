@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.ContextMenu;
+import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -38,6 +39,25 @@ public class PrepareCandidateListActivity extends AppCompatActivity {
         mElectionTitle = intent.getStringExtra("electionTitle");
 
         Button addCandidateButton = (Button) findViewById(R.id.AddCandidateButton);
+        final Button addCandidateButton = (Button) findViewById(R.id.AddCandidateButton);
+        final EditText candidateTextBox = (EditText) findViewById(R.id.CandidateTextBox);
+
+        candidateTextBox.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                boolean handled = false;
+                if (event.getAction() == KeyEvent.ACTION_DOWN)
+                {
+                    if(keyCode == KeyEvent.KEYCODE_ENTER)
+                    {
+                        addCandidateButton.performClick();
+                        candidateTextBox.requestFocus();
+                        handled = true;
+                    }
+                }
+                return handled;
+            }
+        });
 
         addCandidateButton.setOnClickListener(
                 new View.OnClickListener()
@@ -50,6 +70,7 @@ public class PrepareCandidateListActivity extends AppCompatActivity {
                             listItems.add(0, candidateTextBox.getText().toString());
                             candidateTextBox.setText("");
                             adapter.notifyDataSetChanged();
+                            candidateTextBox.requestFocus();
                         }
                     }
                 }
