@@ -12,6 +12,7 @@ public class Schulze {
     private ArrayList<String> mCandidates = null;
     private int[][] mPairwisePreferences = null;
     private int[][] mStrongestPaths = null;
+    private int mBallots = 0;
 
     public Schulze(ArrayList<String> candidates)
     {
@@ -33,6 +34,8 @@ public class Schulze {
                 }
             }
         }
+
+        mBallots++;
     }
 
     public ArrayList<String> getRanking()
@@ -76,12 +79,15 @@ public class Schulze {
 
         ArrayList<String> ranking = new ArrayList<String>(mCandidates);
 
-        Collections.sort(ranking, new Comparator<String>() {
-            @Override
-            public int compare(String candidateX, String candidateY) {
-                return mStrongestPaths[mCandidates.indexOf(candidateY)][mCandidates.indexOf(candidateX)] - mStrongestPaths[mCandidates.indexOf(candidateX)][mCandidates.indexOf(candidateY)];
-            }
-        });
+        if (mBallots > 0) {
+            Collections.sort(ranking, new Comparator<String>() {
+                @Override
+                public int compare(String candidateX, String candidateY) {
+                    return mStrongestPaths[mCandidates.indexOf(candidateY)][mCandidates.indexOf(candidateX)] - mStrongestPaths[mCandidates.indexOf(candidateX)][mCandidates.indexOf(candidateY)];
+                }
+            });
+        }
+
         return ranking;
     }
 }
