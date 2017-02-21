@@ -15,11 +15,21 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ElectionSetupActivity" />
-        <activity android:name=".ElectionLandingActivity" />
-        <activity android:name=".PrepareCandidateListActivity" />
-        <activity android:name=".ResultsActivity" />
-        <activity android:name=".BallotActivity"></activity>
+        <activity
+            android:name=".ElectionSetupActivity"
+            android:label="@string/election_setup_title"/>
+        <activity
+            android:name=".ElectionLandingActivity"
+            android:label="@string/election_title_default"/>
+        <activity
+            android:name=".PrepareCandidateListActivity"
+            android:label="@string/prepare_candidate_list_title"/>
+        <activity
+            android:name=".ResultsActivity"
+            android:label="@string/results_title"/>
+        <activity
+            android:name=".BallotActivity"
+            android:label="@string/ballot_title"/>
     </application>
 
 </manifest>

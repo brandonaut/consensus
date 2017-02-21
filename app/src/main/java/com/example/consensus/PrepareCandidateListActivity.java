@@ -19,7 +19,9 @@ import java.util.ArrayList;
 
 public class PrepareCandidateListActivity extends AppCompatActivity {
 
+    String mElectionTitle;
     ArrayList<String> listItems = new ArrayList<String>();
+
     ArrayAdapter<String> adapter;
 
     @Override
@@ -31,6 +33,9 @@ public class PrepareCandidateListActivity extends AppCompatActivity {
         adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, listItems);
         candidateListView.setAdapter(adapter);
         registerForContextMenu(candidateListView);
+
+        Intent intent = getIntent();
+        mElectionTitle = intent.getStringExtra("electionTitle");
 
         Button addCandidateButton = (Button) findViewById(R.id.AddCandidateButton);
 
@@ -103,6 +108,8 @@ public class PrepareCandidateListActivity extends AppCompatActivity {
 
     public void beginElection(View view) {
         Intent intent = new Intent(this, ElectionLandingActivity.class);
+        intent.putExtra("electionTitle", mElectionTitle);
+
         Bundle b = new Bundle();
         b.putStringArrayList("Candidates", listItems);
         startActivity(intent, b);

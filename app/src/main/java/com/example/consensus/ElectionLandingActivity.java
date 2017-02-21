@@ -18,6 +18,14 @@ public class ElectionLandingActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_election_landing);
+
+        // Update title
+        Intent intent = getIntent();
+        String electionTitle = intent.getStringExtra("electionTitle");
+        if (electionTitle != null) {
+            setTitle(electionTitle);
+        }
+
     }
 
     public void showResults(View view) {
