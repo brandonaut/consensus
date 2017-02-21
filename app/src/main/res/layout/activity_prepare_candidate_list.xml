@@ -1,22 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_prepare_candidate_list"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.consensus.PrepareCandidateListActivity">
+    android:orientation="vertical"
+    android:layout_height="fill_parent"
+    android:layout_width="wrap_content">
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tableRow">
+        <EditText
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/CandidateTextBox"
+            android:layout_alignParentLeft="true"
+            android:layout_toLeftOf="@+id/AddCandidateButton"
+            android:layout_weight="1"
+            android:hint="Candidate Name"
+            android:maxLines="1" />
+        <Button
+            android:id="@+id/AddCandidateButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add"
+            android:layout_alignParentRight="true" />
+    </TableRow>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/CandidateListView"
+        android:visibility="visible"
+        android:layout_weight="1"
+        android:layout_below="@+id/tableRow" />
 
     <Button
         android:text="@string/begin_election"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
         android:id="@+id/beginElectionButton"
-        android:onClick="beginElection" />
-</RelativeLayout>
+        android:onClick="beginElection"
+        android:layout_below="@id/CandidateListView" />
+</LinearLayout>
