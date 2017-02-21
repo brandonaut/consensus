@@ -45,7 +45,7 @@ public class PrepareCandidateListActivity extends AppCompatActivity {
                     public void onClick(View view)
                     {
                         EditText candidateTextBox = (EditText) findViewById(R.id.CandidateTextBox);
-                        if(candidateTextBox.getText().toString() != "")
+                        if(!candidateTextBox.getText().toString().isEmpty())
                         {
                             listItems.add(0, candidateTextBox.getText().toString());
                             candidateTextBox.setText("");
@@ -84,8 +84,11 @@ public class PrepareCandidateListActivity extends AppCompatActivity {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
                     new_name = input.getText().toString();
-                    listItems.set(index, new_name);
-                    adapter.notifyDataSetChanged();
+                    if(!new_name.isEmpty())
+                    {
+                        listItems.set(index, new_name);
+                        adapter.notifyDataSetChanged();
+                    }
                 }
             });
             builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
