@@ -41,7 +41,7 @@ public class ElectionLandingActivity extends AppCompatActivity {
 
     public void showResults(View view) {
         Intent intent = new Intent(this, ResultsActivity.class);
-        intent.putExtra("ranking", mSchulze.getRanking());
+        intent.putExtra("results", mSchulze.getResults());
         startActivity(intent);
     }
 

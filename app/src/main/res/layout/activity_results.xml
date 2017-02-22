@@ -11,21 +11,20 @@
     tools:context="com.example.consensus.ResultsActivity">
 
     <TextView
-        android:text="@string/results_intro"
+        android:text=""
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:id="@+id/resultsText" />
+        android:id="@+id/resultsTextView" />
 
     <Button
         android:text="@string/new_election"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/resultsText"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
         android:id="@+id/newElectionButton"
-        android:onClick="newElection" />
+        android:onClick="newElection"
+        android:layout_below="@+id/resultsTextView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 </RelativeLayout>

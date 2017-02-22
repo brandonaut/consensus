@@ -17,7 +17,6 @@ public class Schulze {
     public Schulze(ArrayList<String> candidates)
     {
         mPairwisePreferences = new int[candidates.size()][candidates.size()];
-        Collections.sort(candidates);
         mCandidates = candidates;
     }
 
@@ -89,5 +88,15 @@ public class Schulze {
         }
 
         return ranking;
+    }
+
+    public String getResults() {
+        ArrayList<String> ranking = getRanking();
+        String results = "Ballots cast: " + Integer.toString(mBallots) + "\n";
+
+        for (int i = 0; i < ranking.size(); i++) {
+            results += Integer.toString(i + 1) + ": " + ranking.get(i) + "\n";
+        }
+        return results;
     }
 }

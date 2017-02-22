@@ -18,4 +18,5 @@
     <string name="election_setup_title">New Election</string>
     <string name="results_title">Election Results</string>
     <string name="ballot_title">New Ballot</string>
+    <string name="no_results">No results to display</string>
 </resources>
